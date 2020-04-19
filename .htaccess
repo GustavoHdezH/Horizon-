@@ -1,0 +1,31 @@
+#DENEGAR EL ACCESO AL SERVIDOR
+#deny from all
+#DENEGAR EL ACCESO A UNA HORA ESPECIFICA 
+#ewriteCond %{TIME_HOUR}^12$
+#RewriteRule ^.*$-[F,L]
+#PREVENIR EL ACCESO AL ARCHIVO .htaccess
+<Files .htaccess>
+#Order allow, deny
+</Files>
+# Prevenir el acceso a un archivo especifico
+<Files config.php>
+#Order allow, deny
+</Files>
+
+#Evitar el listado de directorios 
+#IndexIgnore *
+
+# Activación del modulo
+RewriteEngine On
+# Ocultar extención de php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+#Evitar que los errores se muestren al usuario
+#php_flag display_startup_errors off
+#php_flag display_errors off
+#php_flag html_errors off
+
+#Personalizar errores 404
+ErrorDocument 404 /errors/404.html
