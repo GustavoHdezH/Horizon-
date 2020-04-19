@@ -111,8 +111,4 @@ CREATE TABLE IF NOT EXISTS usuario(
 ?>
 ```
 
-Proyecto completo en [Diseño de sitios web][3]
-
 &copy; 2020 Gustavo Hazel Hernandez Hurtado
-
-[3]:https://github.com/GustavoHdezH/Horizon-
